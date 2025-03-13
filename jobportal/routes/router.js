@@ -261,4 +261,4 @@ router.get('/logout',(req,res)=>{
     res.status(201).json({"message":"logout successfully"})
 });
 
-module.exports=router;
+export default router;

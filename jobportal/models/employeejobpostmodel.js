@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+import  mongoose from 'mongoose';
 
 const employeepostSchema=mongoose.Schema({
    jobtitle:{
@@ -31,4 +31,4 @@ const employeepostSchema=mongoose.Schema({
    }
 });
 const employeejobmodel=mongoose.model('employeepostmodel',employeepostSchema);
-module.exports=employeejobmodel;
+export default employeejobmodel;

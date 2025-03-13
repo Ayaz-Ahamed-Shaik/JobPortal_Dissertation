@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+import  mongoose from 'mongoose';
 
 const schema=mongoose.Schema({
       "id":{
@@ -26,5 +26,5 @@ const schema=mongoose.Schema({
 
 const notesModel=mongoose.model("notes",schema);
 
-module.exports=notesModel;
+export default notesModel;
 
