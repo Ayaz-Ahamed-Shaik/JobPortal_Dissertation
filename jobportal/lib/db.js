@@ -1,7 +1,7 @@
     
   import mongoose from "mongoose";
   
-  export const connectDB = (uri: string) =>
+  export const connectDB = (uri) =>
     mongoose
       .connect(uri, { dbName: "undefined" })
       .then((c) => {
