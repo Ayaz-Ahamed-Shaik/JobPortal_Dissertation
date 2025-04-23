@@ -50,10 +50,9 @@ jobs:
             - name: install node
               run: |
                   sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "mkdir -p /app/frontend"
-                  sshpass -p '42FC#Tgd*Wesdxc' scp -P 5726 -r Frontend/* ec2-user@44.201.127.74:/app/frontend/
-                  sshpass -p '42FC#Tgd*Wesdxc' scp -P 5726 -r Frontend/.env.production ec2-user@44.201.127.74:/app/frontend/
-                  sshpass -p '42FC#Tgd*Wesdxc' scp -P 5726 -r Frontend/.env.development ec2-user@44.201.127.74:/app/frontend/
-                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no -p 5726 ec2-user@44.201.127.74 "
+                  sshpass -p '42FC#Tgd*Wesdxc' scp -P 5726 -r frontendreact/* ec2-user@44.201.127.74:/app/frontend/
+
+                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
                   cd /app/frontend &&
                   npm install &&
                   npm install -g serve && 
