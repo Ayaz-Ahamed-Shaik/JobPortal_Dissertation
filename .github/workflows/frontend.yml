@@ -2,60 +2,60 @@ name: "CI/CD Pipeline Frontend"
 
 on:
     push:
-       branches: 
+        branches: 
             - main
     pull_request:
         branches:
             - main 
     workflow_dispatch:         
-        
-        
+
 jobs:
   build:
     runs-on: ubuntu-latest    
 
     steps:
-        - name: check out action
+        - name: Checkout code
           uses: actions/checkout@v3
 
-        - name: setup nodejs
+        - name: Setup Node.js
           uses: actions/setup-node@v3 
           with: 
-             node-version: 20
+            node-version: 20
             
         - name: Set NODE_ENV to production
           run: echo "NODE_ENV=production" >> $GITHUB_ENV
 
-        - name: install npm
+        - name: Install dependencies
           run: | 
-               npm install
-               npm install pm2
-          working-directory: frontendreact/         
+            npm install
+            npm install pm2 -g
+          working-directory: frontendreact/        
 
   deploy: 
-        needs: build
-        runs-on: ubuntu-latest   
-        
-        steps:
-            - name: checkout action
-              uses: actions/checkout@v3
+    needs: build
+    runs-on: ubuntu-latest   
+    
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-            - name: Install sshpass
-              run: sudo apt-get update && sudo apt-get install -y sshpass
+        - name: Set up SSH
+          run: |
+            mkdir -p ~/.ssh
+            echo "$EC2_SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan -H 44.201.127.74 >> ~/.ssh/known_hosts
 
-            
-            - name: Set NODE_ENV to production
-              run: echo "NODE_ENV=production" >> $GITHUB_ENV
+        - name: Install dependencies on EC2
+          run: |
+            ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "sudo mkdir -p /app/frontend"
+            scp -r frontendreact/* ec2-user@44.201.127.74:/app/frontend/
 
-            - name: install node
-              run: |
-                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "mkdir -p /app/frontend"
-                  sshpass -p '42FC#Tgd*Wesdxc' scp -r frontendreact/* ec2-user@44.201.127.74:/app/frontend/
-
-                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
-                  cd /app/frontend &&
-                  npm install &&
-                  npm install -g serve && 
-                  npm run build
-                   "
-             
+        - name: Install Node.js and Build on EC2
+          run: |
+            ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
+            cd /app/frontend &&
+            npm install &&
+            npm install -g serve &&
+            npm run build
+            "
