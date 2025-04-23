@@ -53,7 +53,8 @@ jobs:
 
                     sshpass -p '42FC#Tgd*Wesdxc' scp -r frontendreact/* ec2-user@44.201.127.74:~/project/frontend
 
-                    sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
+                    sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 
+                    "
                       cd ~/project/frontend &&
                       npm install &&
                       npm run build &&
