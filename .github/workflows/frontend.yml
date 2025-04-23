@@ -3,10 +3,10 @@ name: "CI/CD Pipeline Frontend"
 on:
     push:
        branches: 
-            - main
+            - master
     pull_request:
         branches:
-            - main 
+            - master 
     workflow_dispatch:         
         
         
@@ -49,13 +49,16 @@ jobs:
 
             - name: install node
               run: |
-                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "mkdir -p /app/frontend"
-                  sshpass -p '42FC#Tgd*Wesdxc' scp -r frontendreact/* ec2-user@44.201.127.74:/app/frontend/
+                sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "mkdir -p /home/ec2-user/temp"
+                
+                sshpass -p '42FC#Tgd*Wesdxc' scp -r frontendreact/* ec2-user@44.201.127.74:/home/ec2-user/temp/
 
-                  sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
+                sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
+                  sudo mkdir -p /app/frontend &&
+                  sudo cp -r /home/ec2-user/temp/* /app/frontend/ &&
                   cd /app/frontend &&
                   npm install &&
-                  npm install -g serve && 
+                  npm install -g serve &&
                   npm run build
-                   "
+                "
              
