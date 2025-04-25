@@ -56,4 +56,4 @@ jobs:
               pm2 restart backend; 
             else 
               pm2 start app.js --name backend; 
-            f" 
+            fi" 
