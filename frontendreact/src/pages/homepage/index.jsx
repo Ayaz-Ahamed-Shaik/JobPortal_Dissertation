@@ -1,5 +1,5 @@
 import './index.css';
-import centerimage from '../../assets/images/centerimage.avif';
+import centerimage from '../../assets/recruitment-process1.jpeg';
 
 
 import {  useNavigate } from 'react-router-dom';

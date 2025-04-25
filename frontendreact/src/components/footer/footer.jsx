@@ -2,7 +2,7 @@ import facebook from '../../assets/images/facebook.png';
 import instagram from '../../assets/images/instagram.png';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
-import logo1 from '../../assets/images/logo1.png';
+import logo1 from '../../assets/360_F_535098697_ACASDfjqeQoNOANy70LkmGvuC2uO6bT5.jpg';
 import './footer.css';
 
 function Footer()
@@ -10,7 +10,7 @@ function Footer()
    return(  
     <div class="footer">
         <div class="imagemenu">
-        <img src={logo1} class="logo"/>
+        <img src={logo1} class="logo" width={200} height={200}/>
         <div class="socialicons">
             <img src={facebook} width="30" height="30"/>
             <img src={instagram} width="30" height="30"/>

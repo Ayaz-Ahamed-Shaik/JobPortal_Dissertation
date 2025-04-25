@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import {  useNavigate } from 'react-router-dom';
-import logo1 from '../../assets/images/logo1.png';
+import logo1 from '../../assets/360_F_535098697_ACASDfjqeQoNOANy70LkmGvuC2uO6bT5.jpg';
 import './index.css'
 import React, { useEffect, useState } from 'react';
 import { Logout } from '../../api/auth';
@@ -24,7 +24,7 @@ function Header()
  return(
     <>
     <div class="topbar">
-        <img src={logo1} class="logo"/>
+        <img src={logo1} class="logo" width={200} height={200}/>
             {
                 logout? 
                 
