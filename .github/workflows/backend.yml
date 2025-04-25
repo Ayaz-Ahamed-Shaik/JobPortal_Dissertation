@@ -51,4 +51,9 @@ jobs:
 
             sshpass -p '42FC#Tgd*Wesdxc' scp -r server/* ec2-user@44.201.127.74:~/project/backend/
             sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "cd ~/project/backend/ && npm install && npm install pm2 --save-dev &&  npm install cross-env"
-            sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "cd ~/project/backend/ && NODE_ENV=production  pm2 restart backend" 
+            sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 " cd ~/project/backend/ &&
+            if pm2 list | grep -q 'backend'; then 
+              pm2 restart backend; 
+            else 
+              pm2 start app.js --name backend; 
+            f" 
