@@ -1,4 +1,4 @@
-import  mongoose from 'mongoose';
+const mongoose=require('mongoose');
 
 const employeeSchema=mongoose.Schema({
     name:{
@@ -21,4 +21,4 @@ const employeeSchema=mongoose.Schema({
 });
 
 const employmentmodel=mongoose.model('RecruitmentRegister',employeeSchema);
-export {mongoose,employmentmodel};
+module.exports={mongoose,employmentmodel};

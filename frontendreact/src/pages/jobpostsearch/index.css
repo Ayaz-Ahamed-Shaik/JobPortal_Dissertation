@@ -66,7 +66,7 @@
 }
 .topbar .menu .employeebutton
 {
-    background-color:  #333d90;
+    background-color:  #55c0da;
     width:140px;
     height:45px;
     border-radius: 5px;
@@ -80,7 +80,7 @@
 }
 .topbar .menu .employeebutton:hover
 {
-    background-color:#6571cb;
+    background-color:#56c6e2;
 }
 .topbar .menu h2
 {

@@ -1,13 +1,13 @@
-import express from 'express';
+const express=require('express');
 const router=express.Router();
 
 //use to create a token which consist of id,username and password
-import jwt from 'jsonwebtoken';
+const jwt=require('jsonwebtoken');
 
-import {employmentmodel} from '../models/employeemodel.js';
-import employeejobmodel from '../models/employeejobpostmodel.js';
-import notesModel from '../models/notes.js';
-import  bcrypt from 'bcrypt';
+const {employmentmodel}=require('../models/employeemodel.js');
+const employeejobmodel = require('../models/employeejobpostmodel.js');
+const notesModel = require('../models/notes.js');
+const bcrypt = require('bcrypt');
 var username='';
 router.use(express.urlencoded({extended:true}));
 
@@ -261,4 +261,4 @@ router.get('/logout',(req,res)=>{
     res.status(201).json({"message":"logout successfully"})
 });
 
-export default router;
+module.exports=router;
