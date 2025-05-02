@@ -26,7 +26,7 @@ root.render(
       <Route path='/jobpostview' element={<Authenticated><JobPostingView/></Authenticated>}/>
       <Route path='/jobposting' element={<Authenticated><JobPosting/></Authenticated>}/>
       <Route path='/editjob' element={<Authenticated><EditJobs/></Authenticated>}/>
-      <Route path='/deletejob' element={<Authenticated><DeleteJobs/></Authenticated>}/>
+      <Route path='/deletejob' element={<Authenticated><DeleteJobs/></Authenticated>} />
       <Route path='/company' element={<Company/>}/>
       <Route path='/search' element={<JobPostSearch/>}/>
       <Route path='/addnotes' element={<Authenticated><AddNotes/></Authenticated>}/>
