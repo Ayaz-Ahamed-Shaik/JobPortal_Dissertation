@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm ci
+      - npm install pm2 -g
+  build:
+    commands:
+      - echo "Build complete"
+artifacts:
+  files:
+    - '**/*'
+  base-directory: backend
