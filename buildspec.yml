@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
+      - cd backend
       - npm install
       - npm install pm2 -g
   build:
