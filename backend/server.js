@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI,{dbName:'RecruitmentDB'}).then(e=>console
 
 
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}) );
 app.use(express.json());
 
 app.set('view engine','ejs');
