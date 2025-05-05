@@ -30,7 +30,7 @@ jobs:
           run: | 
                npm install
                npm install pm2
-          working-directory: frontendreact/         
+          working-directory: frontend/         
 
   deploy: 
         needs: build
