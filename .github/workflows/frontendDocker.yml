@@ -52,8 +52,7 @@ jobs:
           "
 
           sshpass -p '42FC#Tgd*Wesdxc' scp -r ./frontend ec2-user@44.201.127.74:~/project/
-          sshpass -p '42FC#Tgd*Wesdxc' scp ./docker-compose.yml ec2-user@44.201.127.74:~/project/
-
+    
           sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
             cd ~/project &&
             docker-compose down &&
