@@ -57,5 +57,5 @@ jobs:
           sshpass -p '42FC#Tgd*Wesdxc' ssh -o StrictHostKeyChecking=no ec2-user@44.201.127.74 "
             cd ~/project &&
             docker-compose down &&
-            docker-compose up --build -d
+            docker-compose up --build  -d
           "
