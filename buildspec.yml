@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - cd backend
+      - cd frontend
       - npm install
       - npm install pm2 -g
   build:
@@ -14,4 +14,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: backend
+  base-directory: frontend
